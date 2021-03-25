@@ -1,6 +1,3 @@
-from time import sleep
-
-
 class Station:
     registry = []
 
@@ -105,7 +102,6 @@ KomendantskiyP = Station('Комендантский проспект', 'фио�
 
 for station in Station.registry:
     print(station)
-    # sleep(0.25)
 
 PVeteranovLeninskyP = Span(PVeteranov, LeninskyP, 2)
 LeninskyPAvtovo = Span(LeninskyP, Avtovo, 3)
@@ -188,8 +184,6 @@ TInstitut1TInstitut2 = Span(TInstitut1, TInstitut2, 2)
 VosstaniyaMayakovskaya = Span(Vosstaniya, Mayakovskaya, 3)
 VladimirskayaDostoevskaya = Span(Vladimirskaya, Dostoevskaya, 3)
 PushkinskayaZvenigorodkaya = Span(Pushkinskaya, Zvenigorodskaya, 3)
-# for span in Span.registry:
-#     print(span)
 
 N = len(Station.registry)
 routes = [[300] * N for _ in range(N)]
@@ -202,4 +196,3 @@ for i in range(N):
                     routes[i][j] = routes[j][i] = span.time
         else:
             routes[i][j] = 0
-# print(routes)

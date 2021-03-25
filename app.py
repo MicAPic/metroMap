@@ -18,7 +18,6 @@ def clicked():
     if len(stations) == 2:
         messagebox.showinfo('Кратчайший маршрут',
                             Metro_Dijkstra(init.N, int(stations[0]), int(stations[1]), init.routes))
-        # textbox.configure(state='disabled')
         stations.clear()
     textbox.delete(0, END)
     textbox.insert(0, "")
