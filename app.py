@@ -13,7 +13,7 @@ def enter(e):
 
 def clicked():
     station = textbox.get()
-    if station.isdigit() and 0 <= int(station) < 72:
+    if station.isdigit() and 0 <= int(station) < init.N:
         stations.append(station)
     if len(stations) == 2:
         messagebox.showinfo('Кратчайший маршрут',
