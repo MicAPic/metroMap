@@ -1,11 +1,12 @@
 class Station:
     registry = []
 
-    def __init__(self, name, line):
+    def __init__(self, name, line, coordinates=None):
         self.registry.append(self)
         self.name = name
         self.line = line
         self.id = len(self.registry) - 1
+        self.coordinates = coordinates
 
     def __str__(self):
         return f'Это станция "{self.name}" {self.line} линии (ID: {self.id})'
@@ -62,18 +63,18 @@ Ozerki = Station('Озерки', 'син')
 PProsvet = Station('Проспект Просвещения', 'син')
 Parnas = Station('Парнас', 'син')
 
-Rybatskoe = Station('Рыбацкое', 'зелен')
-Obuhovo = Station('Обухово', 'зелен')
-Proletarskaya = Station('Пролетарская', 'зелен')
-Lomonosovskaya = Station('Ломоносовская', 'зелен')
-Elizarovskaya = Station('Елизаровская', 'зелен')
-PNevskogo1 = Station('Площадь Александра Невского-1', 'зелен')
-Mayakovskaya = Station('Маяковская', 'зелен')
-GDvor = Station('Гостиный двор', 'зелен')
-VOskaya = Station('Василеостровская', 'зелен')
-Primorskaya = Station('Приморская', 'зелен')
-Novokrestovskaya = Station('Зенит', 'зелен')
-Begovaya = Station('Беговая', 'зелен')
+Rybatskoe = Station('Рыбацкое', 'green')
+Obuhovo = Station('Обухово', 'green')
+Proletarskaya = Station('Пролетарская', 'green')
+Lomonosovskaya = Station('Ломоносовская', 'green')
+Elizarovskaya = Station('Елизаровская', 'green')
+PNevskogo1 = Station('Площадь Александра Невского-1', 'green')
+Mayakovskaya = Station('Маяковская', 'green')
+GDvor = Station('Гостиный двор', 'green')
+VOskaya = Station('Василеостровская', 'green')
+Primorskaya = Station('Приморская', 'green', [72, 258])
+Novokrestovskaya = Station('Зенит', 'green')
+Begovaya = Station('Беговая', 'green', [48, 142])
 
 Spasskaya = Station('Спасская', 'желт')
 Dostoevskaya = Station('Достоевская', 'желт')
