@@ -12,7 +12,9 @@ def enter(e):
 
 
 def clicked():
-    stations.append(textbox.get())
+    station = textbox.get()
+    if station.isdigit() and 0 <= int(station) < init.N:
+        stations.append(station)
     if len(stations) == 2:
         messagebox.showinfo('Кратчайший маршрут',
                             Metro_Dijkstra(init.N, int(stations[0]), int(stations[1]), init.routes))
