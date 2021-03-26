@@ -20,7 +20,6 @@ def clicked(*args):
         stations.clear()
     textbox.delete(0, END)
     textbox.insert(0, "")
-    return print(stations)
 
 
 def clicked_node(e=None, num=0):
@@ -30,7 +29,33 @@ def clicked_node(e=None, num=0):
 
 
 def create_circle(x, y, r, num, color, canvas_name):
-    canvas_name.create_oval(x - r, y - r, x + r, y + r, fill=f'{color}', tags=f'c_{num}')
+    transfer_half_list = [26, 43, 44, 50, 52, 64]
+    if num in transfer_half_list:
+        canvas_name.create_arc(x - r, y - r, x + r, y + r,
+                               fill=f'{color}',
+                               tags=f'c_{num}',
+                               # outline='white',
+                               start=90,
+                               extent=-180)
+    elif num == 49:
+        canvas_name.create_arc(x - r, y - r, x + r, y + r,
+                               fill=f'{color}',
+                               tags=f'c_{num}',
+                               outline='white',
+                               start=300,
+                               extent=120)
+    elif num == 65:
+        canvas_name.create_arc(x - r, y - r, x + r, y + r,
+                               fill=f'{color}',
+                               tags=f'c_{num}',
+                               outline='white',
+                               start=60,
+                               extent=120)
+    else:
+        canvas_name.create_oval(x - r, y - r, x + r, y + r,
+                                fill=f'{color}',
+                                # outline='white',
+                                tags=f'c_{num}',)
     canvas.tag_bind(f'c_{num}', '<Button>', lambda e: clicked_node(e, num))
 
 
@@ -58,6 +83,10 @@ button.grid(column=0, row=2, sticky='W', padx='5', ipadx='73')
 
 for station in init.Station.registry:
     if station.coordinates is not None:
-        create_circle(station.coordinates[0], station.coordinates[1], 5, station.id, station.line, canvas)
+        if station.transfer:
+            radius = 9
+        else:
+            radius = 6
+        create_circle(station.coordinates[0], station.coordinates[1], radius, station.id, station.line, canvas)
 
 window.mainloop()
