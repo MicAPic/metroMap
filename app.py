@@ -34,7 +34,7 @@ def create_circle(x, y, r, num, color, canvas_name):
         canvas_name.create_arc(x - r, y - r, x + r, y + r,
                                fill=f'{color}',
                                tags=f'c_{num}',
-                               # outline='white',
+                               outline='white',
                                start=90,
                                extent=-180)
     elif num == 49:
@@ -54,7 +54,7 @@ def create_circle(x, y, r, num, color, canvas_name):
     else:
         canvas_name.create_oval(x - r, y - r, x + r, y + r,
                                 fill=f'{color}',
-                                # outline='white',
+                                outline='white',
                                 tags=f'c_{num}',)
     canvas.tag_bind(f'c_{num}', '<Button>', lambda e: clicked_node(e, num))
 
