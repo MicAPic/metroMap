@@ -175,7 +175,7 @@ SadovayaAdmiralteiskaya = Span(Sadovaya, Admiralteiskaya, 2)
 AdmiralteiskayaSportivnaya = Span(Admiralteiskaya, Sportivnaya, 3)
 SportivnayaChkalovskaya = Span(Sportivnaya, Chkalovskaya, 2)
 ChkalovskayaKrestovskyO = Span(Chkalovskaya, KrestovskyO, 3)
-KrestovskyOStarayaD = Span(Chkalovskaya, StarayaD, 3)
+KrestovskyOStarayaD = Span(KrestovskyO, StarayaD, 3)
 StarayaDKomendantskiyP = Span(StarayaD, KomendantskiyP, 4)
 
 SennayaSpasskaya = Span(Sennaya, Spasskaya, 4)
