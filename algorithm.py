@@ -22,4 +22,4 @@ def Metro_Dijkstra(n, start, finish, matrix):
         prev_station = parent[prev_station]
     path.append(start)
     path.reverse()
-    return f'Кратачайший путь из {start} в {finish}: {weight[finish]} мин, проходит через: {path}'
+    return weight[finish], path
