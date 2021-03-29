@@ -18,8 +18,6 @@ def clicked(*args):
         res = Metro_Dijkstra(init.N, int(stations[0]), int(stations[1]), init.routes)
         result.config(text=f'Кратчайший маршрут: {res[0]} мин')
         canvas.itemconfig(img, image=metro_map_bw)
-        # for _ in range(len(res[1])):
-        #     canvas.itemconfig(f'c_{res[1][_]}', fill='dim gray')
         for station in init.Station.registry:
             if station.id not in res[1]:
                 canvas.itemconfig(f'c_{station.id}', fill='dim gray')
