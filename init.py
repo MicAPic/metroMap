@@ -103,8 +103,6 @@ KrestovskyO = Station('Крестовский остров', 'purple', [152.45, 
 StarayaD = Station('Старая Деревня', 'purple', [152.45, 142.5])
 KomendantskiyP = Station('Комендантский проспект', 'purple', [152.45, 113.5])
 
-for station in Station.registry:
-    print(station)
 
 PVeteranovLeninskyP = Span(PVeteranov, LeninskyP, 2)
 LeninskyPAvtovo = Span(LeninskyP, Avtovo, 3)

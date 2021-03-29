@@ -18,9 +18,9 @@ def clicked(*args):
         res = Metro_Dijkstra(init.N, int(stations[0]), int(stations[1]), init.routes)
         result.config(text=f'Кратчайший маршрут: {res[0]} мин')
         canvas.itemconfig(img, image=metro_map_bw)
-        for station in init.Station.registry:
-            if station.id not in res[1]:
-                canvas.itemconfig(f'c_{station.id}', fill='dim gray')
+        for st in init.Station.registry:
+            if st.id not in res[1]:
+                canvas.itemconfig(f'c_{st.id}', fill='dim gray')
         stations.clear()
     textbox.delete(0, END)
     textbox.insert(0, "")
@@ -34,33 +34,28 @@ def clicked_node(e=None, num=0):
 
 
 def create_circle(x, y, r, num, color):
-    transfer_half_list = [26, 43, 44, 50, 52, 64]
+    transfer_half_list = [26, 43, 44, 49, 50, 52, 64, 65]
     if num in transfer_half_list:
+        if num == 49:
+            start = 300
+            extent = 120
+        elif num == 65:
+            start = 60
+            extent = 120
+        else:
+            start = 90
+            extent = -180
         canvas.create_arc(x - r, y - r, x + r, y + r,
                           fill=f'{color}',
                           tags=f'c_{num}',
                           outline='white',
-                          start=90,
-                          extent=-180)
-    elif num == 49:
-        canvas.create_arc(x - r, y - r, x + r, y + r,
-                          fill=f'{color}',
-                          tags=f'c_{num}',
-                          outline='white',
-                          start=300,
-                          extent=120)
-    elif num == 65:
-        canvas.create_arc(x - r, y - r, x + r, y + r,
-                          fill=f'{color}',
-                          tags=f'c_{num}',
-                          outline='white',
-                          start=60,
-                          extent=120)
+                          start=start,
+                          extent=extent)
     else:
         canvas.create_oval(x - r, y - r, x + r, y + r,
                            fill=f'{color}',
                            outline='white',
-                           tags=f'c_{num}', )
+                           tags=f'c_{num}')
     canvas.tag_bind(f'c_{num}', '<Button>', lambda e: clicked_node(e, num))
 
 
@@ -72,7 +67,7 @@ def reset():
                               fill=f'{init.Station.registry[_].line}',
                               outline='white')
     canvas.itemconfig(img, image=metro_map)
-    canvas.itemconfig('current', outline='dim grey')
+    canvas.itemconfig('current', outline='black')
 
 
 stations = []
