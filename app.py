@@ -67,7 +67,7 @@ def reset():
                               fill=f'{init.Station.registry[_].line}',
                               outline='white')
     canvas.itemconfig(img, image=metro_map)
-    canvas.itemconfig('current', outline='black')
+    canvas.itemconfig('current', outline='dim gray')
 
 
 stations = []

@@ -16,9 +16,9 @@ class Station:
 class Span:
     registry = []
 
-    def __init__(self, stationA, stationB, time):
+    def __init__(self, station_a, station_b, time):
         self.registry.append(self)
-        self.stations = [stationA, stationB]
+        self.stations = [station_a, station_b]
         self.time = time
 
     def __str__(self):
